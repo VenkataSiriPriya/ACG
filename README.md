@@ -1,12 +1,39 @@
-# React + Vite
+# Accessible City Guide 🌆
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Accessible City Guide is a full-stack web application designed to help users discover and contribute information about accessible places within a city — such as restaurants, parks, public transport, and other amenities.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is built using a modern and efficient web development stack:
 
-## Expanding the ESLint configuration
+### 🔹 Frontend
+- **React**: For building a fast, interactive user interface
+- **Vite**: Development tool for fast bundling and Hot Module Replacement (HMR)
+- **React Router**: For managing client-side routing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔹 Backend
+- **Node.js**: JavaScript runtime environment for server-side logic
+- **Express.js**: Lightweight web framework to create REST APIs
+
+### 🔹 Other Tools & Libraries
+- **PostgreSQL**: Powerful open-source relational database used to store place data, user contributions, and accessibility metadata
+- **ESLint**: For maintaining code quality and consistency
+- **Axios**: For handling HTTP requests between frontend and backend
+
+## ✅ Features
+
+- Browse and search accessible locations
+- Submit new places with accessibility info
+- Responsive and mobile-friendly design
+- User-friendly navigation with clean UI
+- Scalable architecture with modular components
+
+## 🚀 Getting Started
+
+To run this project locally:
+
+### Frontend:
+```bash
+cd project
+npm install
+npm run dev
