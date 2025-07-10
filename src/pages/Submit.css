@@ -1,0 +1,107 @@
+:root {
+  --bg-dark: #000000;
+  --section-bg: #1a0f25;
+  --primary-purple: #a259ff;
+  --text-light: #e6e4e9;
+  --text-muted: #eee9f2;
+  --highlight-purple: #c792ea;
+  --heading-purple: #b388eb;
+  --border-color: #3a2f4a;
+}
+
+body {
+  background-color: var(--bg-dark);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.submit-page {
+  max-width: 900px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  color: var(--text-light);
+}
+
+.submit-header {
+  background-color: var(--section-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.submit-header h1 {
+  color: var(--heading-purple);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.submit-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.submit-form {
+  background-color: var(--section-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--highlight-purple);
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #241832;
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.checkbox-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  padding-top: 0.5rem;
+}
+
+.checkbox-list label {
+    font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+  color: var(--text-muted);
+}
+
+.submit-btn {
+  background-color: var(--primary-purple);
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--highlight-purple);
+}
