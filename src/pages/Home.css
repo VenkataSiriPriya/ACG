@@ -1,0 +1,284 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  background-color: #000;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.home-container {
+  background-color: #000;
+  color: #dcdce0;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #100f1f 0%, #1c1a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+   font-family: 'Times New Roman', Times, serif;
+  color: #b3b1c9;
+  margin-bottom: 2rem;
+}
+
+.explore-button {
+  background-color: #7c3aed;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
+}
+
+.explore-button:hover {
+  background-color: #6b21a8;
+}
+
+/* Section Base */
+section {
+  padding: 6rem 2rem;
+}
+
+section h3 {
+  font-size: 2.4rem;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 2.5rem;
+  color: #e5e1f0;
+  text-align: center;
+}
+
+/* Features */
+.features {
+  background-color: #0a0a0a;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #141217;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #3c366b;
+}
+
+.feature-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #a78bfa;
+}
+
+.feature-card h4 {
+  font-size: 1.2rem;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 0.5rem;
+  color: #e0dff4;
+}
+
+.feature-card p {
+  font-family: 'Times New Roman', Times, serif;
+  color: #b0afc4;
+  font-size: 0.95rem;
+}
+
+/* How It Works */
+.how-it-works {
+  background-color: #0c0c0c;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step {
+  background-color: #1a1920;
+  padding: 2rem;
+  border: 1px solid #2e2b4b;
+  border-radius: 8px;
+}
+
+.step h4 {
+  font-size: 1.3rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #c084fc;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #cbc8de;
+}
+
+/* Testimonials */
+.testimonials {
+  background-color: #0b0b0b;
+}
+
+.testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  background: #15151b;
+  padding: 2rem;
+  border-left: 4px solid #7c3aed;
+  border-radius: 6px;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #e0dfe6;
+  margin-bottom: 1rem;
+}
+
+.testimonial span {
+  color: #a78bfa;
+  font-weight: bold;
+}
+
+/* Tips Section */
+.tips {
+  background-color: #0f0f0f;
+}
+
+.tips-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tip {
+  background-color: #1b1b24;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #383552;
+}
+
+.tip h4 {
+  color: #c084fc;
+  margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.tip p {
+  color: #d0ced9;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Categories */
+.categories {
+  background-color: #0e0e0e;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.category {
+  background-color: #2d294a;
+  color: #e0dff2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid #444065;
+  cursor: pointer;
+}
+
+.category:hover {
+  background-color: #3c385c;
+}
+
+/* CTA Section */
+.cta {
+  background: #131217;
+  text-align: center;
+}
+
+.cta h3 {
+  font-size: 2.6rem;
+  color: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1.2rem;
+}
+
+.cta p {
+  color: #c5c3d3;
+  max-width: 600px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0 auto 2rem;
+}
+
+.cta-button {
+  background-color: #7c3aed;
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+}
+
+.cta-button:hover {
+  background-color: #6b21a8;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .cta h3 {
+    font-size: 2.1rem;
+  }
+}

@@ -1,0 +1,89 @@
+/* File: src/components/Footer.css */
+
+.footer {
+  background: linear-gradient(135deg, #2a0846 0%, #1a012f 100%);
+  color: #e6e0f4;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1rem;
+  color: #f3e8ff;
+}
+
+.footer-brand p {
+  color: #d4c2f0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-column h5 {
+  font-size: 1.2rem;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1rem;
+  color: #d946ef; /* bright purple accent */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #d4c2f0;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+.footer-column .socials li a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c2aee2;
+}
+
+@media (max-width: 600px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-column,
+  .footer-brand {
+    margin-bottom: 2rem;
+  }
+}
