@@ -1,23 +1,29 @@
 :root {
-  --bg-dark: #1a1a2e;
-  --bg-deep: #16213e;
-  --form-bg: #222041;
+  --bg-dark: #000000;
+  --bg-deep: #000000;
+  --form-bg: #111111;
   --accent: #a259ff;
   --hover-accent: #c792ea;
   --highlight: #c792ea;
   --text-muted: #ccc;
-  --info-bg: #2a2a50;
+  --info-bg: #1a1a1a;
   --info-title: #ffcb74;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--bg-dark);
+  color: #fff;
 }
 
 .register-container {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(to right, var(--bg-dark), var(--bg-deep));
-  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-dark);
+  font-family: 'Times New Roman', Times, serif;
   color: #fff;
   overflow-x: hidden;
-  animation: fadeIn 1s ease-out;
 }
 
 .register-box {
@@ -31,16 +37,13 @@
 .register-form {
   background: var(--form-bg);
   padding: 2.5rem 3rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   width: 100%;
   max-width: 420px;
-  animation: fadeIn 1.2s ease-out;
 }
 
 .register-form h2 {
   color: var(--accent);
-  font-family: 'Times New Roman', Times, serif;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -49,7 +52,6 @@
 .register-form p {
   color: var(--text-muted);
   margin-bottom: 1.5rem;
-  font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   text-align: center;
 }
@@ -62,15 +64,15 @@
   display: block;
   margin-bottom: 0.4rem;
   color: var(--highlight);
-  font-weight: 500;
+  font-weight: normal;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.75rem;
-  background: #1e1b37;
-  border: 1px solid #33334d;
-  border-radius: 8px;
+  background: #000000;
+  border: 1px solid #333;
+  border-radius: 5px;
   color: #fff;
   font-size: 0.95rem;
   box-sizing: border-box;
@@ -82,7 +84,7 @@
 }
 
 .form-group input::placeholder {
-  color: #999;
+  color: #888;
 }
 
 .register-btn {
@@ -90,7 +92,7 @@
   padding: 0.8rem;
   background-color: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   font-family: 'Times New Roman', Times, serif;
   color: #fff;
   font-weight: 600;
@@ -116,24 +118,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: slideIn 1.5s ease-out;
 }
 
 .register-info h3 {
   color: var(--info-title);
   font-size: 2rem;
-  font-family: 'Times New Roman', Times, serif;
   margin-bottom: 1rem;
 }
 
 .register-info p {
   color: #ddd;
-  font-family: 'Times New Roman', Times, serif;
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 1.2rem;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
   .register-form {
     max-width: 90%;
@@ -182,29 +182,7 @@
   }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
+/* Success Box (no animation) */
 .success-box-overlay {
   position: fixed;
   top: 0;
@@ -216,7 +194,6 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
-  animation: fadeIn 0.4s ease-in-out;
 }
 
 .success-box {
@@ -225,10 +202,8 @@
   border-radius: 12px;
   text-align: center;
   color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   max-width: 400px;
   width: 90%;
-  animation: popIn 0.4s ease-in-out;
 }
 
 .success-box h3 {
@@ -251,24 +226,4 @@
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
-}
-
-@keyframes popIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
