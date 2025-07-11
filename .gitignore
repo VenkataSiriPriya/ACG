@@ -7,18 +7,50 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Editor directories and files
+# Environment variables
+.env
+.env.*.local
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+.out/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# VSCode settings
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+
+# Other IDEs
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Mac system files
+.DS_Store
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# PostgreSQL dump or local SQL files (optional)
+*.sql
+*.dump
