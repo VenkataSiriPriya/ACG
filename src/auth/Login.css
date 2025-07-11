@@ -1,0 +1,220 @@
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-deep: #16213e;
+  --form-bg: #222041;
+  --accent: #a259ff;
+  --hover-accent: #c792ea;
+  --highlight: #c792ea;
+  --text-muted: #ccc;
+  --info-bg: #2a2a50;
+  --info-title: #ffcb74;
+}
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to right, var(--bg-dark), var(--bg-deep));
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  animation: fadeIn 1s ease-out;
+}
+
+.login-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-form {
+  background: var(--form-bg);
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 420px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.login-form h2 {
+  color: var(--accent);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.login-form p {
+  color: var(--text-muted);
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1e1b37;
+  border: 1px solid #33334d;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.links a {
+  color: var(--accent);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 1.4rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.95rem;
+}
+
+.register-text a {
+  color: var(--hover-accent);
+  text-decoration: none;
+}
+
+.login-info {
+  flex: 1;
+  padding: 4rem 2rem;
+  background: var(--info-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideIn 1.5s ease-out;
+}
+
+.login-info h3 {
+  color: var(--info-title);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.login-info p {
+  color: #ddd;
+  font-size: 1.05rem;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .login-form {
+    max-width: 90%;
+  }
+
+  .login-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .login-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-info {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .login-form {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.5rem 1rem;
+    max-width: 95%;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .login-info p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
