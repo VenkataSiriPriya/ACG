@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1); // 1: email, 2: verify OTP, 3: change password
+  const [step, setStep] = useState(1); // 1: enter email, 2: enter OTP, 3: reset password
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -19,18 +19,19 @@ const ForgotPassword = () => {
       const res = await fetch('https://backend-acg.onrender.com/api/auth/request-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email: email.trim() })
       });
       const data = await res.json();
       if (res.ok) {
         setModalMessage('OTP has been sent to your email!');
         setShowModal(true);
         setRedirectPath('');
+        setStep(2); // ✅ Move to OTP step
       } else {
         alert(data.message);
       }
     } catch (err) {
-      alert('Server error');
+      alert('Server error. Please try again.');
     }
   };
 
@@ -40,13 +41,14 @@ const ForgotPassword = () => {
       const res = await fetch('https://backend-acg.onrender.com/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, otp })
+        body: JSON.stringify({ email: email.trim(), otp: otp.trim() })
       });
       const data = await res.json();
       if (res.ok) {
         setModalMessage('OTP verified! Please set a new password.');
         setShowModal(true);
         setRedirectPath('');
+        setStep(3); // ✅ Move to password reset step
       } else {
         alert(data.message);
       }
@@ -66,13 +68,17 @@ const ForgotPassword = () => {
       const res = await fetch('https://backend-acg.onrender.com/api/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, otp, newPassword })
+        body: JSON.stringify({
+          email: email.trim(),
+          otp: otp.trim(),
+          newPassword
+        })
       });
       const data = await res.json();
       if (res.ok) {
         setModalMessage('Password reset successful!');
         setShowModal(true);
-        setRedirectPath('/login');
+        setRedirectPath('/login'); // ✅ Go to login after reset
       } else {
         alert(data.message);
       }
@@ -85,8 +91,6 @@ const ForgotPassword = () => {
     setShowModal(false);
     if (redirectPath) {
       navigate(redirectPath);
-    } else {
-      setStep(step + 1); // Move to next step
     }
   };
 
@@ -146,7 +150,7 @@ const ForgotPassword = () => {
         </form>
       )}
 
-      {/* ✅ Success Modal */}
+      {/* ✅ Modal Box */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-box">
