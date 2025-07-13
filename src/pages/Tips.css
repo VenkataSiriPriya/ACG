@@ -1,80 +1,415 @@
+/* File: src/components/Tips.css */
+
+/* Using the same CSS variables from the main theme */
 :root {
-  --bg-dark: #000000;
-  --section-bg: #241832;
-  --primary-purple: #a259ff;
-  --text-light: #f1eff4;
-  --text-muted: #eae8ed;
-  --highlight-purple: #f4ecf9;
-  --heading-purple: #c084fc;
-  --border-color: #3a2f4a;
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --elevated-bg: #363636;
+  --accent-bg: #4a4a4a;
+  
+  --primary-text: #ffffff;
+  --secondary-text: #e0e0e0;
+  --muted-text: #b0b0b0;
+  --accent-text: #8a8a8a;
+  
+  --primary-accent: #6366f1;
+  --secondary-accent: #8b5cf6;
+  --success-accent: #10b981;
+  --warning-accent: #f59e0b;
+  --error-accent: #ef4444;
+  --info-accent: #06b6d4;
+  
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --gradient-tertiary: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
 }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  font-family: 'Times New Roman', Times, serif;
-  margin: 0;
-  padding: 0;
-}
-
+/* Main Container */
 .tips-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  background-color: var(--bg-dark);
+  background: var(--primary-bg);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Background Animation */
+.tips-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  animation: backgroundFloat 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+/* Header Styles */
 .tips-container h1 {
-  color: var(--heading-purple);
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 1s ease-out;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intro Text */
 .intro {
   text-align: center;
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
+  font-size: 1.25rem;
+  color: var(--secondary-text);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tips Section */
 .tips-section {
-  background-color: var(--section-bg);
-  border: 1px solid var(--border-color);
-  padding: 2rem;
-  margin-bottom: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-normal);
+  animation: fadeInUp 1s ease-out 0.6s both;
 }
 
+.tips-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-secondary);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.tips-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--success-accent);
+}
+
+.tips-section:hover::before {
+  background: var(--gradient-primary);
+}
+
+/* Section Headers */
 .tips-section h2 {
-  color: var(--heading-purple);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
 }
 
+.tips-section h2::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-accent), transparent);
+  margin-left: 1rem;
+}
+
+/* Profile Section Specific Styling */
+.tips-section:nth-child(2) h2 {
+  color: var(--primary-accent);
+}
+
+.tips-section:nth-child(2)::before {
+  background: var(--gradient-primary);
+}
+
+/* Discover Section Specific Styling */
+.tips-section:nth-child(3) h2 {
+  color: var(--warning-accent);
+}
+
+.tips-section:nth-child(3)::before {
+  background: var(--gradient-tertiary);
+}
+
+/* Community Section Specific Styling */
+.tips-section:nth-child(4) h2 {
+  color: var(--success-accent);
+}
+
+.tips-section:nth-child(4)::before {
+  background: var(--gradient-secondary);
+}
+
+/* List Styles */
 .tips-section ul {
   list-style: none;
-  padding-left: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
-.tips-section ul li {
+.tips-section li {
+  padding: 1rem 0;
+  color: var(--secondary-text);
+  font-size: 1.1rem;
+  line-height: 1.7;
   position: relative;
-  padding-left: 1.5rem;
-  color: var(--highlight-purple);
-  font-size: 1.05rem;
-  margin-bottom: 0.6rem;
+  padding-left: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition-normal);
 }
 
-.tips-section ul li::before {
-  content: '✔';
+.tips-section li:last-child {
+  border-bottom: none;
+}
+
+.tips-section li:hover {
+  color: var(--primary-text);
+  padding-left: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--border-radius);
+}
+
+/* Custom Emoji Positioning */
+.tips-section li::before {
+  content: attr(data-emoji);
   position: absolute;
   left: 0;
-  color: var(--primary-purple);
-  font-weight: bold;
+  top: 1rem;
+  font-size: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--elevated-bg);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-normal);
 }
 
+.tips-section li:hover::before {
+  background: var(--primary-accent);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Footer Section */
 .tips-footer {
   text-align: center;
-  font-style: italic;
-  color: var(--text-muted);
-  margin-top: 2rem;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.tips-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius-lg);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.tips-footer p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin: 0;
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tips-container {
+    padding: 2rem 1rem;
+  }
+  
+  .tips-container h1 {
+    font-size: 2.2rem;
+  }
+  
+  .intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tips-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tips-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .tips-section li {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+  
+  .tips-footer {
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .tips-footer p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tips-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .intro {
+    font-size: 1rem;
+  }
+  
+  .tips-section {
+    padding: 1.5rem;
+  }
+  
+  .tips-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .tips-section h2::after {
+    display: none;
+  }
+  
+  .tips-section li {
+    font-size: 0.95rem;
+  }
+  
+  .tips-footer p {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-text: #ffffff;
+    --secondary-text: #ffffff;
+    --muted-text: #cccccc;
+    --card-bg: #000000;
+    --elevated-bg: #000000;
+    --primary-accent: #00ff00;
+    --secondary-accent: #00ffff;
+    --success-accent: #00ff00;
+    --warning-accent: #ffff00;
+    --error-accent: #ff0000;
+  }
+  
+  .tips-section {
+    border: 2px solid var(--primary-text);
+  }
+}
+
+/* Focus Styles for Keyboard Navigation */
+.tips-section:focus-within {
+  outline: 3px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .tips-container::before {
+    display: none;
+  }
+  
+  .tips-container h1,
+  .tips-footer p {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+  
+  .tips-section {
+    break-inside: avoid;
+    box-shadow: none;
+  }
 }

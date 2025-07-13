@@ -1,9 +1,10 @@
-/* Footer.css - Dark Theme */
+/* File: src/components/Footer.css */
+
+/* Using the same CSS variables from Home.css */
 .footer {
-  background: linear-gradient(135deg, #0a0a0b 0%, #1a1a1b 100%);
-  color: #d1d5db;
-  padding: 4rem 0 2rem;
-  font-family: 'Times New Roman', Times, serif;
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+  padding: 3rem 2rem 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
@@ -12,183 +13,196 @@
 .footer::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
   position: relative;
   z-index: 1;
 }
 
 .footer-columns {
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 3rem;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .footer-brand h4 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.2;
 }
 
 .footer-brand p {
-  font-size: 1rem;
+  color: var(--secondary-text);
   line-height: 1.6;
-  color: #9ca3af;
-  max-width: 28ch;
-  opacity: 0.9;
+  font-size: 0.95rem;
+  max-width: 300px;
 }
 
 .footer-column h5 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #ffffff;
   margin-bottom: 1.5rem;
+  color: var(--primary-text);
   position: relative;
+  padding-bottom: 0.5rem;
 }
 
 .footer-column h5::after {
   content: '';
   position: absolute;
-  bottom: -0.5rem;
+  bottom: 0;
   left: 0;
-  width: 2rem;
+  width: 30px;
   height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
-  border-radius: 1px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
 }
 
-.footer-column a {
-  color: #9ca3af;
+.footer-column ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-column ul li a {
+  color: var(--secondary-text);
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
-  position: relative;
+  font-size: 0.9rem;
+  transition: var(--transition-normal);
   display: inline-block;
+  position: relative;
+  padding: 0.25rem 0;
 }
 
-.footer-column a::before {
+.footer-column ul li a::before {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 0;
   height: 1px;
-  background: currentColor;
-  transition: width 0.2s ease;
+  background: var(--primary-accent);
+  transition: var(--transition-normal);
 }
 
-.footer-column a:hover {
-  color: #ffffff;
+.footer-column ul li a:hover {
+  color: var(--primary-accent);
+  transform: translateX(5px);
 }
 
-.footer-column a:hover::before {
+.footer-column ul li a:hover::before {
   width: 100%;
 }
 
-.footer-column a:focus {
-  outline: 2px solid #3b82f6;
+.footer-column ul li a:focus {
+  outline: 2px solid var(--primary-accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* Social Links */
-.socials a {
-  display: inline-flex;
+/* Social links special styling */
+.socials li a {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-normal);
+  margin-bottom: 0.5rem;
 }
 
-.socials a:hover {
-  transform: translateX(2px);
+.socials li a:hover {
+  background: var(--elevated-bg);
+  border-color: var(--primary-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Footer Bottom */
+.socials li a:hover::before {
+  width: 0; /* Override the underline for social links */
+}
+
 .footer-bottom {
   text-align: center;
-  font-size: 0.9rem;
-  color: #6b7280;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 2rem;
-  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .footer-columns {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .footer-brand {
     grid-column: 1 / -1;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   
   .footer-brand p {
-    max-width: none;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 3rem 0 1.5rem;
-  }
-  
-  .footer-container {
-    padding: 0 1rem;
+    padding: 2rem 1rem 1rem;
   }
   
   .footer-columns {
     grid-template-columns: 1fr;
     gap: 2rem;
+    text-align: center;
   }
   
   .footer-brand {
-    text-align: center;
-    margin-bottom: 1rem;
+    grid-column: auto;
   }
   
-  .footer-brand p {
-    margin: 0 auto;
+  .footer-column h5::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
   
-  .footer-column h5 {
-    font-size: 1.1rem;
-  }
-  
-  .footer-column a {
-    font-size: 0.9rem;
+  .socials li a {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .footer {
-    padding: 2rem 0 1rem;
+    padding: 1.5rem 1rem 1rem;
   }
   
   .footer-columns {
@@ -196,94 +210,71 @@
   }
   
   .footer-brand h4 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+  
+  .footer-brand p {
+    font-size: 0.9rem;
   }
   
   .footer-column h5 {
-    font-size: 1rem;
-  }
-  
-  .footer-column a {
-    font-size: 0.85rem;
-  }
-  
-  .footer-bottom {
-    font-size: 0.8rem;
-    padding-top: 1.5rem;
+    font-size: 1.1rem;
   }
 }
 
-/* Accessibility */
+/* Accessibility Enhancements */
 @media (prefers-reduced-motion: reduce) {
-  .footer-column a,
-  .footer-column a::before,
-  .socials a {
+  .footer-column ul li a,
+  .socials li a {
     transition: none;
   }
   
-  .socials a:hover {
-    transform: none;
+  .footer-column ul li a::before {
+    transition: none;
   }
 }
 
+/* High Contrast Mode */
 @media (prefers-contrast: high) {
   .footer {
-    border-top-width: 2px;
-    border-top-color: #ffffff;
+    border-top: 2px solid var(--primary-text);
   }
   
-  .footer-brand h4 {
-    -webkit-text-fill-color: #ffffff;
-    color: #ffffff;
+  .footer-column ul li a {
+    border: 1px solid transparent;
   }
   
-  .footer-column a {
-    color: #ffffff;
+  .footer-column ul li a:hover {
+    border-color: var(--primary-accent);
+    background: var(--card-bg);
   }
   
-  .footer-column a:focus {
-    outline-width: 3px;
-    outline-color: #ffffff;
+  .socials li a {
+    border: 2px solid var(--primary-text);
+  }
+  
+  .footer-bottom {
+    border-top: 2px solid var(--primary-text);
   }
 }
 
 /* Print Styles */
 @media print {
-  .footer {
-    background: none;
-    color: #000000;
-    border-top: 1px solid #000000;
-  }
-  
   .footer::before {
     display: none;
   }
   
   .footer-brand h4 {
-    -webkit-text-fill-color: #000000;
-    color: #000000;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
   }
   
-  .footer-column a {
-    color: #000000;
-    text-decoration: underline;
+  .footer-column ul li a {
+    color: #000000 !important;
   }
   
-  .footer-bottom {
-    border-top-color: #000000;
-  }
-}
-
-/* Modern CSS Features */
-@supports (backdrop-filter: blur(10px)) {
-  .footer {
-    backdrop-filter: blur(10px);
-  }
-}
-
-/* Container Queries (Progressive Enhancement) */
-@container (max-width: 600px) {
-  .footer-columns {
-    grid-template-columns: 1fr;
+  .socials li a {
+    background: transparent !important;
+    border: 1px solid #000000 !important;
   }
 }
