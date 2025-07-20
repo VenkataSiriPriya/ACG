@@ -1,8 +1,13 @@
 // File: src/pages/Home.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
+  // Set the 'visited' flag when the component mounts
+  useEffect(() => {
+    localStorage.setItem('visited', 'true');
+  }, []);
+
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -67,10 +72,6 @@ const Home = () => {
           <div className="testimonial">
             <p>“Finally a place where accessibility is prioritized. I’ve even submitted my favorite local café — and it now has more visitors who need those services.”</p>
             <span>- Mohan K., Chennai</span>
-          </div>
-          <div className="testimonial">
-            <p>“I use a wheelchair, and this app has completely changed how I explore the city. I feel empowered to go out and enjoy life independently.”</p>
-            <span>- Sarah T., Hyderabad</span>
           </div>
           <div className="testimonial">
             <p>“I use a wheelchair, and this app has completely changed how I explore the city. I feel empowered to go out and enjoy life independently.”</p>
