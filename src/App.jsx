@@ -12,6 +12,9 @@ import Tips from './pages/Tips';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ForgotPassword from './auth/ForgotPassword';
+import AdminDashboard from './dashboards/AdminDashboard';
+import ManageUsers from './dashboards/ManageUsers';
+import NotFound from './Error/NotFound';
 
 export default function App() {
   return (
@@ -29,6 +32,9 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/tips" element={<Tips />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </main>

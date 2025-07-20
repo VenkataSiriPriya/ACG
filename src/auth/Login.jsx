@@ -44,9 +44,9 @@ const Login = () => {
   const handleSuccessOk = () => {
     // Redirect based on role
     if (role === 'admin') {
-      navigate('/admin-dashboard');
+      navigate('/');
     } else {
-      navigate('/dashboard');
+      navigate('/');
     }
   };
 

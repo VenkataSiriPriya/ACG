@@ -1,0 +1,367 @@
+/* ManageUsers Component Styles */
+.manage-users-container {
+  padding: 2rem;
+  background: var(--primary-bg);
+  min-height: 100vh;
+  color: var(--primary-text);
+}
+
+.manage-users-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading and Error States */
+.manage-users-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.manage-users-container p[style*="red"] {
+  color: var(--error-accent) !important;
+  border-color: var(--error-accent);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Table Styles */
+.user-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border-collapse: collapse;
+}
+
+.user-table thead {
+  background: var(--elevated-bg);
+  position: relative;
+}
+
+.user-table thead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+.user-table th {
+  padding: 1.5rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.user-table th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-table tbody tr {
+  transition: var(--transition-normal);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-table tbody tr:hover {
+  background: var(--elevated-bg);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.user-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.user-table td {
+  padding: 1.25rem 1rem;
+  color: var(--secondary-text);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.user-table td:first-child {
+  font-weight: 600;
+  color: var(--primary-accent);
+  font-family: 'Courier New', monospace;
+}
+
+.user-table td:nth-child(2) {
+  font-weight: 500;
+  color: var(--primary-text);
+}
+
+.user-table td:nth-child(3) {
+  color: var(--info-accent);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.user-table td:nth-child(4) {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+/* Delete Button Styles */
+.user-table button {
+  padding: 0.5rem 1.25rem;
+  background: var(--error-accent);
+  color: var(--primary-text);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.user-table button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition-fast);
+}
+
+.user-table button:hover::before {
+  left: 100%;
+}
+
+.user-table button:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.user-table button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-table button:focus {
+  outline: 2px solid var(--error-accent);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .manage-users-container {
+    padding: 1.5rem;
+  }
+  
+  .user-table {
+    font-size: 0.9rem;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .manage-users-container h2 {
+    font-size: 2rem;
+  }
+  
+  .user-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: var(--border-radius);
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .user-table td:nth-child(3) {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 640px) {
+  .manage-users-container {
+    padding: 1rem;
+  }
+  
+  .manage-users-container h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Stack table vertically on very small screens */
+  .user-table,
+  .user-table thead,
+  .user-table tbody,
+  .user-table th,
+  .user-table td,
+  .user-table tr {
+    display: block;
+  }
+  
+  .user-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .user-table tr {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .user-table tr:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .user-table td {
+    border: none;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 30%;
+    white-space: normal;
+    text-align: left;
+  }
+  
+  .user-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    width: 25%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--primary-text);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Add data labels for mobile */
+  .user-table td:nth-child(1):before { content: "ID"; }
+  .user-table td:nth-child(2):before { content: "Username"; }
+  .user-table td:nth-child(3):before { content: "Email"; }
+  .user-table td:nth-child(4):before { content: "Created"; }
+  .user-table td:nth-child(5):before { content: "Actions"; }
+  
+  .user-table td:nth-child(5) {
+    padding-left: 6px;
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .user-table button {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse-loading {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.manage-users-container p:first-of-type {
+  animation: pulse-loading 1.5s ease-in-out infinite;
+}
+
+/* Empty State Styling */
+.manage-users-container p:contains("No users found") {
+  background: var(--card-bg);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  color: var(--muted-text);
+  font-style: italic;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .user-table tbody tr,
+  .user-table button,
+  .manage-users-container p:first-of-type {
+    animation: none;
+    transition: none;
+  }
+  
+  .user-table tbody tr:hover {
+    transform: none;
+  }
+  
+  .user-table button:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .user-table {
+    border: 2px solid var(--primary-text);
+  }
+  
+  .user-table th {
+    background: var(--primary-text);
+    color: var(--primary-bg);
+  }
+  
+  .user-table tbody tr:hover {
+    background: var(--primary-text);
+    color: var(--primary-bg);
+  }
+  
+  .user-table button {
+    border: 2px solid var(--error-accent);
+  }
+}
+
+/* Focus Management */
+.user-table:focus-within {
+  box-shadow: var(--shadow-xl), 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
