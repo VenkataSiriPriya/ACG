@@ -46,7 +46,7 @@ const SubmitPlace = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/submit', {
+      const res = await fetch('https://backend-acg.onrender.com/api/submit', {
         method: 'POST',
         body: formData,
       });

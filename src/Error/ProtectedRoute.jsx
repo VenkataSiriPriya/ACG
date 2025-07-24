@@ -2,9 +2,10 @@
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("auth"); // or use your actual auth logic
+  const isAuthenticated = localStorage.getItem("auth");
+  const fromInternalNavigation = sessionStorage.getItem("navigatedInternally");
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || fromInternalNavigation !== "true") {
     return <Navigate to="/" replace />;
   }
 

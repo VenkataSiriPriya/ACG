@@ -1,6 +1,6 @@
-// File: src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// src/App.js
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './auth/Login';
@@ -16,20 +16,27 @@ import Footer from './components/Footer';
 import ForgotPassword from './auth/ForgotPassword';
 import AdminDashboard from './dashboards/AdminDashboard';
 import ManageUsers from './dashboards/ManageUsers';
+import ManagePlaces from './dashboards/ManagePlaces';
 import NotFound from './Error/NotFound';
 import ProtectedRoute from './Error/ProtectedRoute';
+
+function NavigationListener() {
+  const location = useLocation();
+
+  useEffect(() => {
+    sessionStorage.setItem("navigatedInternally", "true");
+  }, [location.pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
     <Router>
+      <NavigationListener />
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          
-          {/* Protected routes */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -41,10 +48,11 @@ export default function App() {
           <Route path="/tips" element={<Tips />} />
 
           <Route path="/forgot-password" element={<ProtectedRoute><ForgotPassword /></ProtectedRoute>} />
-          <Route path="/admin-dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-          <Route path="/manage-users" element={<ProtectedRoute><ManageUsers /></ProtectedRoute>} />
-          
-          {/* Catch-all route */}
+           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="/manage-places" element={<ManagePlaces />} />
+  
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
